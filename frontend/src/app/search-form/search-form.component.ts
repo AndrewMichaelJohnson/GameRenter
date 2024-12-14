@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { GameService } from '../service/game.service';
 
 @Component({
   selector: 'app-search-form',
@@ -13,8 +14,10 @@ export class SearchFormComponent {
     gamePlatform: new FormControl(''),
   })
   findGames() {
-    alert(
-      this.searchForm.value.gameName + ' | ' + this.searchForm.value.gamePlatform
-    )
+    return this.gameService.searchGames("zelda");
+    //alert(
+      //this.searchForm.value.gameName + ' | ' + this.searchForm.value.gamePlatform
+    //)
   }
+  gameService = inject(GameService);
 }
