@@ -1,7 +1,8 @@
 package com.gravie.gamerenter.service.impl;
 
 import com.gravie.gamerenter.client.GiantBombApiClient;
-import com.gravie.gamerenter.domain.Game;
+import com.gravie.gamerenter.domain.SearchGameResult;
+import com.gravie.gamerenter.domain.SingleGameResponse;
 import com.gravie.gamerenter.service.GiantBombService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,11 @@ public class GiantBombServiceImpl implements GiantBombService {
         this.client = client;
     }
 
-    public ResponseEntity<Game> retrieveGame(String gameId) {
+    public ResponseEntity<SingleGameResponse> retrieveGame(String gameId) {
         return client.getGame(gameId);
+    }
+
+    public ResponseEntity<SearchGameResult> searchGame(String query) {
+        return client.searchByName(query);
     }
 }
