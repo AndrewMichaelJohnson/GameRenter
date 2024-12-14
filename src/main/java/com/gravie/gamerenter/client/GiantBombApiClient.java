@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class GiantBombApiClient {
@@ -29,7 +30,7 @@ public class GiantBombApiClient {
 
     private HttpHeaders getHeaders() {
         HttpHeaders headers = new HttpHeaders();
-        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+        headers.setAccept(List.of(MediaType.APPLICATION_JSON));
         headers.set("user-agent", "Andrew Johnson Gravie project bot");
         return headers;
     }
