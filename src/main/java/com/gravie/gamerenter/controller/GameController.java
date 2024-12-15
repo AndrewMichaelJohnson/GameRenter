@@ -21,11 +21,13 @@ public class GameController {
     }
 
     @GetMapping(path = "/games/{gameId}", produces = {APPLICATION_JSON_VALUE})
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<SingleGameResponse> getGame(@PathVariable final String gameId) {
         return service.retrieveGame(gameId);
     }
 
     @GetMapping(path = "/games/searchgames/{searchValue}", produces = {APPLICATION_JSON_VALUE})
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<SearchGameResult> searchGames(@PathVariable final String searchValue) {
         return service.searchGame(searchValue);
     }
