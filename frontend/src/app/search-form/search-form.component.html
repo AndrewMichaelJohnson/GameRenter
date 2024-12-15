@@ -1,57 +1,41 @@
 <p xmlns="http://www.w3.org/1999/html">
-  <form [formGroup]="searchForm" (ngSubmit)="findGames()">
-  <div>
-  <label>Search for Game</label>
-    <input type="text" formControlName="gameName">
+<form novalidate class="search-form" [formGroup]="searchForm" (ngSubmit)="findGames()">
+  <div class="form-group">
+    <label for="gameSearch">Search for Game</label>
+    <input type="text" id="gameSearch" formControlName="gameName" placeholder="Enter game name..." class="input-field">
   </div>
-  <button type="submit">Submit</button>
+  <button type="submit" class="submit-btn">Search</button>
 </form>
-<form [formGroup]="singleGameForm" (ngSubmit)="findGames()">
-  <div>
-  <label>Get game by ID</label>
-  <input type="text" formControlName="gameId">
-  </div>
-  <button type="submit">Submit</button>
-  </form>
-<button routerLink="/checkout">Go to checkout page!</button>
 <router-outlet>
-<h2>Profile Form</h2>
-<p>gameName: {{ searchForm.value.gameName }}</p>
-<p>gamePlatform: {{ singleGameForm.value.gameId }}</p>
-<div>
-  <h1>Game List:</h1>
-<!--  <div>
-    {{ data.results }}
-  </div>-->
-<!--  <tbody>
-  @for (game of data; track game.id){
-    <li> {{ game.name }} </li>
-  } @empty {
-    <li>Run a search to see matching games</li>
-  }
-  </tbody>-->
 
-
-  <div class="game-list-container">
-    @for (game of data; track game.id){
-      <div (click)="selectGame(game)" [ngClass]="{ 'game-card': !game.isClicked, 'game-card-clicked': game.isClicked }">
-        <img class="game-image" [src]="game?.image?.original_url"  alt="Game Image" />
-        <div class="game-info">
-          <h2 class="game-name">{{ game?.name }}</h2>
-          <p class="game-aliases">{{ game?.aliases }}</p>
-          <p class="game-deck">{{ game?.deck }}</p>
-          <div class="platforms">
-            <h4>Available Platforms:</h4>
-            <ul>
-              @for (platform of game.platforms; track platform.id){
-                {{ platform?.name }}
-              }
-            </ul>
+  <main class="main">
+    <div class="content">
+      <div class="left-side">
+        <div>
+          <h1>Game List:</h1>
+          <div class="game-list-container">
+            @for (game of games; track game.id){
+              <div (click)="selectGame(game)" [ngClass]="{ 'game-card': !game.isClicked, 'game-card-clicked': game.isClicked }">
+                <img class="game-image" [src]="game?.image?.original_url"  alt="Game Image" />
+                <div class="game-info">
+                  <h2 class="game-name">{{ game?.name }}</h2>
+                  <p class="game-aliases">{{ game?.aliases }}</p>
+                  <p class="game-deck">{{ game?.deck }}</p>
+                  <div class="platforms">
+                    <h4>Available Platforms:</h4>
+                    <ul>
+                      @for (platform of game.platforms; track platform.id){
+                        {{ platform?.name }}
+                      }
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            }
           </div>
         </div>
       </div>
-    }
-  </div>
+    </div>
+  </main>
 
-
-</div>
+</router-outlet>

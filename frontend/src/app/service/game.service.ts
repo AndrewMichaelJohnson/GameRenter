@@ -1,20 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { GameResult } from '../interface/gameResult';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {GameResult} from '../interface/gameResult';
 import {Game} from '../interface/game';
-
-/*interface Game {
-  name: string,
-  guid: string,
-  id: number,
-}
-
-interface GameResult {
-  limit: number,
-  error: string,
-  results: Array<Game>,
-}*/
 
 @Injectable({
   providedIn: 'root'
@@ -41,8 +29,22 @@ export class GameService {
     return this.selectedGames.has(game);
   }
 
+  getSelectedGames(): Set<Game> {
+    console.log("Returning selected games: " + this.selectedGames);
+    return this.selectedGames;
+  }
+
+  clearSelections(): void{
+    this.selectedGames.clear();
+  }
+
   printList() {
     console.log("Printing set");
     this.selectedGames.forEach(function(value: Game){console.log(value)})
   }
+
+  getListLength(): number{
+    return this.selectedGames.size;
+  }
+
 }

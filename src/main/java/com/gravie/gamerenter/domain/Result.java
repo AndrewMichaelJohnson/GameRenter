@@ -1,12 +1,12 @@
 package com.gravie.gamerenter.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Data
-public class Result {
+public class Result implements Serializable {
     private String aliases;
     private String deck;
     private String description;

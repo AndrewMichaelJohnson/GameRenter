@@ -1,1 +1,18 @@
-<p>checkout works!asdfasdfasdfasdf</p>
+<div class="content">
+  <div class="left-side">
+    <div>
+      <h1>Game List:</h1>
+      <div class="game-list-container">
+        @for (game of gamesToRent; track game.id){
+          <div>
+            <img class="game-image" [src]="game?.image?.original_url"  alt="Game Image" />
+            <div class="game-info">
+              <h2 class="game-name">{{ game?.name }}</h2>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+<app-order-form/>

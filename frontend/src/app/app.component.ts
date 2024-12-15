@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {RouterLink, RouterOutlet} from '@angular/router';
-import {SearchFormComponent} from './search-form/search-form.component';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
+import {GameService} from './service/game.service';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SearchFormComponent, RouterLink, HttpClientModule],
+  imports: [RouterOutlet, RouterLink, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  gameService = inject(GameService);
+  clearGames(){
+    this.gameService.clearSelections();
+  }
 }

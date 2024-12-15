@@ -1,0 +1,43 @@
+<form *ngIf="showOrderForm" novalidate class="search-form" [formGroup]="orderForm" (ngSubmit)="postOrder()">
+  <div id="stylized" class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" formControlName="firstName" placeholder="First Name" class="input-field">
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" formControlName="lastName" placeholder="Last Name..." class="input-field">
+    <label for="address">Address Line 1</label>
+    <input type="text" id="address" formControlName="address" placeholder="Address Line 1..." class="input-field">
+    <label for="apartmentNumber">Apartment Number</label>
+    <input type="text" id="apartmentNumber" formControlName="apartmentNumber" placeholder="Apartment Number..." class="input-field">
+    <label for="city">City</label>
+    <input type="text" id="city" formControlName="city" placeholder="City..." class="input-field">
+    <label for="country">Country</label>
+    <input type="text" id="country" formControlName="country" placeholder="Country..." class="input-field">
+    <label for="state">State</label>
+    <input type="text" id="state" formControlName="state" placeholder="State..." class="input-field">
+    <label for="zipCode">Zip Code</label>
+    <input type="text" id="zipCode" formControlName="zipCode" placeholder="Zip Code..." class="input-field">
+    <label for="creditCard">Credit card</label>
+    <input type="text" id="creditCard" formControlName="creditCard" placeholder="Credit card number..." class="input-field">
+  </div>
+  <button type="submit" class="submit-btn">Search</button>
+</form>
+
+<div class="content" *ngIf="showOrderResult" >
+  <div class="left-side">
+    <div>
+      <h1>Rental successfully submitted!</h1>
+      <h1>Due date {{ completeRental.dueDate | date: 'MM/dd/yyyy HH:mm'}}</h1>
+      <h1>Game List:</h1>
+      <div class="game-list-container">
+        @for (game of completeRental.games; track game.id){
+          <div>
+            <img class="game-image" [src]="game?.image?.original_url"  alt="Game Image" />
+            <div class="game-info">
+              <h2 class="game-name">{{ game?.name }}</h2>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
