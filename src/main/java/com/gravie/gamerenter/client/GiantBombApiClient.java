@@ -17,14 +17,16 @@ public class GiantBombApiClient {
 
     private final RestTemplate restTemplate = new RestTemplate();
 
-    public ResponseEntity<SearchGameResult> searchByName(String gameName) {
+    public ResponseEntity<SearchGameResult> searchByName(String searchValue) {
         HttpEntity<String> entity = new HttpEntity<>(getHeaders());
-        return restTemplate.exchange(String.format("https://www.giantbomb.com/api/games/?api_key=%s&format=json&limit=10&name=%s", apiKey, gameName), HttpMethod.GET, entity, SearchGameResult.class);
+        System.out.println("Sending this request: " + String.format("https://www.giantbomb.com/api/search/?api_key=%s&format=json&limit=10&query=%s&resources=game", apiKey, searchValue));
+            return restTemplate.exchange(String.format("https://www.giantbomb.com/api/search/?api_key=%s&format=json&limit=10&query=%s&resources=game", apiKey, searchValue), HttpMethod.GET, entity, SearchGameResult.class);
     }
 
     public ResponseEntity<SingleGameResponse> getGame(String gameID) {
         HttpEntity<String> entity = new HttpEntity<>(getHeaders());
-        return restTemplate.exchange(String.format("https://www.giantbomb.com/api/game/%s/?api_key=%s&format=json", gameID, apiKey ), HttpMethod.GET, entity, SingleGameResponse.class);
+        System.out.println("Sending this request: " + String.format("https://www.giantbomb.com/api/game/%s/?api_key=%s&format=json&resources=game", gameID, apiKey ));
+        return restTemplate.exchange(String.format("https://www.giantbomb.com/api/game/%s/?api_key=%s&format=json&resources=game", gameID, apiKey ), HttpMethod.GET, entity, SingleGameResponse.class);
     }
 
     private HttpHeaders getHeaders() {

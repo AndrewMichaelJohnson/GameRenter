@@ -36,3 +36,6 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+build.dependsOn('frontend:build')
+processResources.mustRunAfter 'frontend:build'

@@ -1,0 +1,16 @@
+plugins{
+  id "com.github.node-gradle.node" version "6.0.0"
+}
+
+version "0.0.1"
+
+node {
+  download = true
+}
+
+tasks.register('build', NpmTask) {
+  args = ['run', 'build-java']
+}
+
+
+build.dependsOn(npmInstall)

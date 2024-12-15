@@ -1,26 +1,48 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { GameResult } from '../interface/gameResult';
+import {Game} from '../interface/game';
+
+/*interface Game {
+  name: string,
+  guid: string,
+  id: number,
+}
+
+interface GameResult {
+  limit: number,
+  error: string,
+  results: Array<Game>,
+}*/
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
-  games = ['The Legend of Zelda', 'Final Fantasy']
 
-  searchGames(searchTerm: string) {
-    console.log("Hit function");
-    var  xhr = new  XMLHttpRequest();
+  selectedGames = new Set<Game>();
 
-    xhr.open('GET', 'localhost:8080' + '/v1/games/searchbyname/' + searchTerm);
-    xhr.onload = function() {
-      console.log("status: " + xhr.status);
-      console.log("xhr content: " + xhr.response);
-    }
-    xhr.send();
-    return this.games;
+  constructor(private http: HttpClient) {}
+
+  searchGames(searchTerm: string): Observable<GameResult>{
+    return this.http.get<GameResult>('http://localhost:8080' + '/v1/games/searchgames/' + searchTerm);
   }
 
-  getGame(id: number){
-    return this.games[id];
+  addGameToSelected(game: Game){
+    this.selectedGames.add(game);
   }
-  constructor() { }
+
+  removeGameFromSelected(game: Game) {
+    this.selectedGames.delete(game);
+  }
+
+  hasSelectedGame(game: Game) {
+    return this.selectedGames.has(game);
+  }
+
+  printList() {
+    console.log("Printing set");
+    this.selectedGames.forEach(function(value: Game){console.log(value)})
+  }
 }

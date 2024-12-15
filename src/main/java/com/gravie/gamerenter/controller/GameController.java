@@ -20,14 +20,14 @@ public class GameController {
         this.service = service;
     }
 
-    @GetMapping(path = "/games/{gameId}",produces = {APPLICATION_JSON_VALUE})
+    @GetMapping(path = "/games/{gameId}", produces = {APPLICATION_JSON_VALUE})
     public ResponseEntity<SingleGameResponse> getGame(@PathVariable final String gameId) {
         return service.retrieveGame(gameId);
     }
 
-    @GetMapping(path = "/games/searchbyname/{gameName}",produces = {APPLICATION_JSON_VALUE})
-    public ResponseEntity<SearchGameResult> searchGames(@PathVariable final String gameName) {
-        return service.searchGame(gameName);
+    @GetMapping(path = "/games/searchgames/{searchValue}", produces = {APPLICATION_JSON_VALUE})
+    public ResponseEntity<SearchGameResult> searchGames(@PathVariable final String searchValue) {
+        return service.searchGame(searchValue);
     }
 
 }
