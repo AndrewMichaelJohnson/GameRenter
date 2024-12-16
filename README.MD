@@ -19,6 +19,8 @@ gradle command, you should get a jar. Probably it will be in build/libs. You can
 
 java -jar GameRenter-0.0.1-SNAPSHOT.jar --giant.bomb.api.key=[your_giant_bomb_api_key_goes_here]
 
+I have also uploaded a .jar in case you want to skip the build, you can find it in /prebuild
+
 Please note that I did not give my API key, I do not want to commit it to GitHub and the best practice of course is that it is only unencrypted in the application memory.
 I have emailed my api key for your convenience. 
 
