@@ -8,7 +8,7 @@ I also would, if finishing this application, turn on the Spring Web Security in 
 within the application. I am keeping this explanation short, as I understand that the intention is that we might meet regarding this application to discuss 
 the rationale underlying the design choices. I would definitely spend more time on the CSS if I were to further polish it. 
 
-## Build/Local run instruictions
+## Build/Local run instructions
 This project is a Spring Boot/Gradle application backend with an Angular frontend bundled into the jar. The application runs with the Spring Boot built in Tomcat pattern.
 To build the application all in one jar, run:
 
