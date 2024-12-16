@@ -1,0 +1,7 @@
+#testing {
+  display:flex;
+  justify-content: center;
+}
+#checkoutForm {
+  min-width: 12em;
+}

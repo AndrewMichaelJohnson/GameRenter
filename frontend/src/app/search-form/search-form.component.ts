@@ -28,12 +28,7 @@ export class SearchFormComponent {
     this.games = [];
     this.gameService.searchGames(this.searchForm.value.gameName ?? '').subscribe(
       (gameResult: GameResult) => {
-        console.log("I am getting back the response it is: " + gameResult.results);
-        console.log("First item is : " + gameResult.results[0].name + "url: ");
         this.games = gameResult.results;
-        this.games.forEach((item: { name: any; }) => {
-          console.log("name check" + item.name);
-        });
         this.isLoading = false;
       },
       (err) => {
@@ -44,8 +39,6 @@ export class SearchFormComponent {
   }
 
   selectGame(game: Game){
-    console.log("Got my clicky");
-    console.log("Name from clicky" + game.name);
     //If the game is selected already we need to remove it. We track it selected games in the service.
     if(this.gameService.hasSelectedGame(game)) {
       this.gameService.removeGameFromSelected(game);

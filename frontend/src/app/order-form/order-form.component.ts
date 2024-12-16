@@ -58,9 +58,6 @@ export class OrderFormComponent implements OnInit  {
     }, (err: any) => {
         console.log("Something went wrong error:" + err);
       }
-
     );
   }
-
-
 }

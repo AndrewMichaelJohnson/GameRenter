@@ -1,7 +1,9 @@
-.content {
+#top-notice {
+  justify-content: center;
   display: flex;
-  justify-content: space-around;
-  width: 100%;
-  max-width: 480em;
-  margin-bottom: 3rem;
+}
+
+#button-case {
+  display: flex;
+  justify-content: center;
 }
