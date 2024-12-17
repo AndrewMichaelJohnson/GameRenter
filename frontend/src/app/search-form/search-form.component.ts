@@ -4,12 +4,10 @@ import {GameService} from '../service/game.service';
 import {GameResult} from '../interface/gameResult';
 import {Game} from '../interface/game';
 import {NgClass} from '@angular/common';
-import {RouterOutlet} from '@angular/router';
-
 
 @Component({
   selector: 'app-search-form',
-  imports: [ReactiveFormsModule, NgClass, RouterOutlet],
+  imports: [ReactiveFormsModule, NgClass],
   templateUrl: './search-form.component.html',
   styleUrl: './search-form.component.css'
 })

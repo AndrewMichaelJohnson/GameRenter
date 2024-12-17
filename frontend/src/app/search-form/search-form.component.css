@@ -1,3 +1,7 @@
+.search-form{
+  display: flex;
+  justify-content: center;
+}
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +19,7 @@ h1, p {
 }
 
 /* Content Styling */
-.content {
+.game-panel {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,11 +30,12 @@ h1, p {
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
 }
 
 .left-side {
-  text-align: center;
-  width: 100%;
+
 }
 
 /* Header and Paragraph */

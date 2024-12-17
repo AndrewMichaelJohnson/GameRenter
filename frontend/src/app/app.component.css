@@ -1,6 +1,7 @@
 #top-notice {
-  justify-content: center;
   display: flex;
+  justify-content: center;
+  margin: 0;
 }
 
 #button-case {
