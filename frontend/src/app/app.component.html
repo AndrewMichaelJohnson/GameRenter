@@ -1,14 +1,18 @@
+<mat-toolbar>
+  <span>GameRenter</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
 <main class="main">
   <div class="content">
     <div class="left-side">
       <h1 id="top-notice">Hello, Welcome to GameRenter! Click the link below to search for games to rent. </h1>
       <p></p>
       <div id="button-case">
-        <button routerLink="/search">Search for games</button>
+        <button mat-stroked-button routerLink="/search">Search for games</button>
         <p></p>
-        <button (click)="clearGames()" routerLink="/">Back to home and clear save games</button>
+        <button mat-stroked-button (click)="clearGames()" routerLink="/">Back to home and clear save games</button>
         <p></p>
-        <button routerLink="/checkout">Checkout</button>
+        <button mat-stroked-button routerLink="/checkout">Checkout</button>
       </div>
     </div>
     <br/>
